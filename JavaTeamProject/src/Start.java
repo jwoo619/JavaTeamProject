@@ -18,6 +18,7 @@ public class Start extends JFrame {
 		start.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dispose();
+				new Game();
 			}
 		});
 		c.add(start);
@@ -37,6 +38,11 @@ public class Start extends JFrame {
 			}
 		});
 		c.add(rank);
+		
+		ImageIcon img  = new ImageIcon("background.jpg");
+	    JLabel background  = new JLabel(img);
+	    background.setBounds(0, 0, 1200, 1000);
+	    c.add(background);
 
 		//setLocationRelativeTo(null);
 		setTitle("신과 함께");

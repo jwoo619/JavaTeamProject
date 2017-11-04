@@ -58,6 +58,11 @@ public class Ranking extends JFrame {
 			num.setFont(new Font("¸¼Àº °íµñ",Font.BOLD,40));
 			c.add(num);
 		}
+        
+        ImageIcon img  = new ImageIcon("background.jpg");
+	    JLabel background  = new JLabel(img);
+	    background.setBounds(0, 0, 1200, 1000);
+	    c.add(background);
 		
 		setTitle("½Å°ú ÇÔ²²");
 		setSize(1200,1000);
@@ -67,7 +72,7 @@ public class Ranking extends JFrame {
 	}
 	
 	public static void main(String[] args) throws IOException {
-		new Ranking();
+		//new Ranking();
 	}
 
 }

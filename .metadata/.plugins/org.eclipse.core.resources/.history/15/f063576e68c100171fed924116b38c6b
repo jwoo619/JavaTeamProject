@@ -1,0 +1,13 @@
+import java.awt.*;
+import javax.swing.*;
+
+public class Game {
+	
+	ImageIcon img  = new ImageIcon("charter.png");
+    JLabel charter  = new JLabel(img);
+    
+	public static void main(String[] args) {
+		new Game();
+	}
+
+}

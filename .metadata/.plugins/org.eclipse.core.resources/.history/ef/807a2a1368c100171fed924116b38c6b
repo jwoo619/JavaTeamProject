@@ -1,0 +1,13 @@
+import java.awt.*;
+import javax.swing.*;
+
+public class Game {
+	
+	ImageIcon img  = new ImageIcon("./raw/taehee1.png");
+    JLabel charter  = new JLabel(img);
+    
+	public static void main(String[] args) {
+
+	}
+
+}
