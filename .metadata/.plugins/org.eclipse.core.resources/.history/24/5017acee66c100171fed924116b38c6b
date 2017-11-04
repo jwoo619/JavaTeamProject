@@ -20,7 +20,7 @@ public class Ranking extends JFrame {
 		back.setFont(new Font("¸¼Àº °íµñ",Font.BOLD,20));
 		back.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				dispose();
+				System.exit(0);
 				new Start();
 			}
 		});

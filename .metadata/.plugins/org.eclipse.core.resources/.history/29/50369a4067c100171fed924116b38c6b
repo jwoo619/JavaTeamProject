@@ -28,7 +28,6 @@ public class Start extends JFrame {
 		rank.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
-					dispose();
 					new Ranking();
 				} catch (IOException e1) {
 					// TODO Auto-generated catch block

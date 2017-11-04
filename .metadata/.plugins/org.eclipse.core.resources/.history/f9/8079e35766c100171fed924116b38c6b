@@ -17,6 +17,12 @@ public class Start extends JFrame {
 		start.setFont(new Font("¸¼Àº °íµñ",Font.BOLD,20));
 		start.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				try {
+					new Ranking();
+				} catch (IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
 				dispose();
 			}
 		});
@@ -27,13 +33,7 @@ public class Start extends JFrame {
 		rank.setFont(new Font("¸¼Àº °íµñ",Font.BOLD,20));
 		rank.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				try {
-					dispose();
-					new Ranking();
-				} catch (IOException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				}
+				dispose();
 			}
 		});
 		c.add(rank);
