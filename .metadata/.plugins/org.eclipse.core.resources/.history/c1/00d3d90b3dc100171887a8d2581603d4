@@ -1,0 +1,38 @@
+import java.awt.*;
+import javax.swing.*; 
+
+public class Start extends JFrame {
+	
+	public Start() {
+		
+		//Image img = new ImageIcon("Background.jpg");
+		
+		Container c = this.getContentPane();
+		c.setLayout(null);
+
+		JButton jb1 = new JButton("GAME START");
+		jb1.setBounds(480, 700, 250, 80);
+		jb1.setFont(new Font("¸¼Àº °íµñ",Font.BOLD,20));
+		c.add(jb1);
+		
+		JButton jb2 = new JButton("·©Å· º¸±â");
+		jb2.setBounds(480, 800, 250, 80);
+		jb2.setFont(new Font("¸¼Àº °íµñ",Font.BOLD,20));
+		c.add(jb2);
+		
+		//Image dimg = img.getScaledInstance(800, 508, Image.SCALE_SMOOTH);
+		//ImageIcon img = new ImageIcon("Background.jpg");
+		//setContentPane(new JLabel(img));
+		setTitle("½Å°ú ÇÔ²²");
+		setSize(1200,1000);
+		setResizable(false);
+		setVisible(true);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	}
+	
+	public static void main(String[] args) {
+		new Start();
+
+	}
+
+}

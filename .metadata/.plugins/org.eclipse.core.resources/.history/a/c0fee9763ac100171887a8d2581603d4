@@ -1,0 +1,29 @@
+import java.awt.*;
+import javax.swing.*; 
+
+public class Start extends JFrame {
+	
+	public Start() {
+		
+		Container c = this.getContentPane();
+		c.setLayout(null);
+
+		
+		JButton jb = new JButton("GAME START");
+		jb.setBounds(400, 600, 250, 80);
+		jb.setFont(new Font("¸¼Àº °íµñ",Font.BOLD,20));
+		c.add(jb);
+		
+		setTitle("½Å°ú ÇÔ²²");
+		setSize(1200,1000);
+		setResizable(false);
+		setVisible(true);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	}
+	
+	public static void main(String[] args) {
+		new Start();
+
+	}
+
+}

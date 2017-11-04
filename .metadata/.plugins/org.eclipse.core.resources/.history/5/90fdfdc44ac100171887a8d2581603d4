@@ -1,0 +1,68 @@
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+
+import javax.swing.*;
+
+public class Ranking extends JFrame {
+	
+	public Ranking() throws IOException{
+		
+		Container c = this.getContentPane();
+		c.setLayout(null);
+		
+		JButton back = new JButton("µÚ·Î°¡±â");
+		back.setBounds(480, 850, 250, 80);
+		back.setFont(new Font("¸¼Àº °íµñ",Font.BOLD,20));
+		back.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				new Start();
+				dispose();
+			}
+		});
+		c.add(back);
+		
+		JLabel rank = new JLabel("Rank");
+		rank.setBounds(535, 15, 250, 80);
+		rank.setFont(new Font("¸¼Àº °íµñ",Font.BOLD,50));
+		c.add(rank);
+		
+		for(int i=1; i<=10; i++) {
+			JLabel num = new JLabel(String.valueOf(i));
+			num.setBounds(200, (i*75),100,100);
+			num.setFont(new Font("¸¼Àº °íµñ",Font.BOLD,40));
+			c.add(num);
+		}
+		
+		BufferedReader data = new BufferedReader(new FileReader("rank.txt"));
+		int i = 1;
+        while(true) {
+            String line = data.readLine();
+            if (line==null) break;
+			JLabel name = new JLabel(String.valueOf(line));
+			name.setBounds(500, (i*75),500,100);
+			name.setFont(new Font("¸¼Àº °íµñ",Font.BOLD,40));
+			c.add(name);
+			i += 1 ;
+			System.out.println(i);
+        }
+        data.close();
+		
+        
+        
+		setTitle("½Å°ú ÇÔ²²");
+		setSize(1200,1000);
+		setResizable(false);
+		setVisible(true);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);	
+	}
+	
+	public static void main(String[] args) throws IOException {
+		new Ranking();
+	}
+
+}
