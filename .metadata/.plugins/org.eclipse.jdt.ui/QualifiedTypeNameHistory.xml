@@ -13,4 +13,5 @@
 <fullyQualifiedTypeName name="java.awt.event.MouseMotionAdapter"/>
 <fullyQualifiedTypeName name="java.awt.event.MouseMotionListener"/>
 <fullyQualifiedTypeName name="java.awt.event.MouseListener"/>
+<fullyQualifiedTypeName name="Game"/>
 </qualifiedTypeNameHistroy>

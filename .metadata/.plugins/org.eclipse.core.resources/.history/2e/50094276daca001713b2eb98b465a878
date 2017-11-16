@@ -49,14 +49,10 @@ public class Game extends JFrame {
 			int y = e.getY();
 			if((charter.getX() < x && charter.getX()+200 > x) && (charter.getY()+80 < y && charter.getY()+370 > y))
 			charter.setLocation(x-100, y-250); // 위치 조정
-
+			System.out.println(charter.getX());
 			if(charter.getX() < 300)
 			{
 				System.out.println("천국");
-			}
-			else if(charter.getX() > 1100)
-			{
-				System.out.println("지옥");
 			}
 		}
 	}
