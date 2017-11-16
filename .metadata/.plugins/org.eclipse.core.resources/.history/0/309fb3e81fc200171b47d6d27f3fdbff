@@ -1,0 +1,57 @@
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseMotionAdapter;
+import java.awt.event.MouseMotionListener;
+
+import javax.swing.*;
+
+public class Game extends JFrame{
+	
+	public Game() {
+		
+		Container c = this.getContentPane();
+		c.setLayout(null);
+		
+	    ImageIcon cimg  = new ImageIcon("charter.png");
+	    JLabel charter  = new JLabel(cimg);
+	    charter.setBounds(500,300, 200, 400);
+	    add(charter);
+	    //this.addMouseListener()); // 마우스리스너 
+		//charter.addMouseMotionListener(new MyMouseListener()); // 모션리스너
+	    
+	    ImageIcon bimg  = new ImageIcon("background.jpg");
+	    JLabel background  = new JLabel(bimg);
+	    background.setBounds(0, 0, 1200, 1000);
+	    c.add(background);
+	    
+	    class MyMouseListener extends MouseAdapter implements MouseMotionListener{
+			public void mousePressed(MouseEvent e){ // 눌린순간
+			int x = e.getX(); 
+			int y = e.getY();
+			System.out.println(x +" , " +y);
+			//la.setLocation(x, y); // 위치 조정
+			} 
+			public void mouseDragged(MouseEvent e){ // 드래그일시 
+				System.out.println(x +" ," +y);
+				int x = e.getX(); 
+				int y = e.getY(); 
+				//la.setLocation(x, y); // 위치 조정
+				} 
+		} 
+	    
+	    
+		setTitle("신과 함께");
+		setSize(1200,1000);
+		setResizable(false);
+		setVisible(true);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);		
+	}
+
+	public static void main(String[] args) {
+		new Game();
+	}
+
+}

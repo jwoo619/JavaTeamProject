@@ -2,16 +2,23 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="rank" key="selection"/>
+		<item value="charter" key="selection"/>
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
+			<item value="box"/>
+			<item value="offY"/>
+			<item value="offX"/>
+			<item value="label"/>
 			<item value="jb2"/>
 			<item value="jb1"/>
 		</list>
 		<list key="replacehistory">
+			<item value="charter"/>
+			<item value="M_Y"/>
+			<item value="M_X"/>
 			<item value="rank"/>
 			<item value="start"/>
 			<item value="back"/>
@@ -21,7 +28,7 @@
 		<item value="340" key="DIALOG_WIDTH"/>
 		<item value="1|맑은 고딕|9.0|0|WINDOWS|1|-15|0|0|0|400|0|0|0|1|0|0|0|0|맑은 고딕" key="DIALOG_FONT_NAME"/>
 		<item value="454" key="DIALOG_HEIGHT"/>
-		<item value="882" key="DIALOG_X_ORIGIN"/>
-		<item value="285" key="DIALOG_Y_ORIGIN"/>
+		<item value="614" key="DIALOG_X_ORIGIN"/>
+		<item value="408" key="DIALOG_Y_ORIGIN"/>
 	</section>
 </section>
