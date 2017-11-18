@@ -12,7 +12,10 @@ import java.awt.event.MouseMotionListener;
 public class Game extends JFrame {
 	
 	JLabel charter;
- 
+	JLabel socre_board;
+	static int socre = 0;
+	static int life  = 3;
+	
 	public Game() {
 		
 		Container c = this.getContentPane();
@@ -25,7 +28,11 @@ public class Game extends JFrame {
 		charter.setSize(200,400); // 크기 지정 
 	    add(charter);
 	    
-		
+	    socre_board = new JLabel("score : 0");
+	    socre_board.setBounds(700,10,400,100);
+	    socre_board.setFont(new Font("", Font.PLAIN, 50));
+		add(socre_board);
+	    
 	    ImageIcon bimg  = new ImageIcon("background.jpg");
 	    JLabel background  = new JLabel(bimg);
 	    background.setBounds(0, 0, 1600, 1000);
@@ -50,19 +57,38 @@ public class Game extends JFrame {
 			if((charter.getX() < x && charter.getX()+200 > x) && (charter.getY()+80 < y && charter.getY()+370 > y))
 			charter.setLocation(x-100, y-250); // 위치 조정
 
-			if(charter.getX() < 300)
+			if(charter.getX() < 100)
 			{
 				System.out.println("천국");
+				Check ();
 			}
-			else if(charter.getX() > 1100)
+			else if(charter.getX() > 1300)
 			{
 				System.out.println("지옥");
+				Check ();
 			}
 		}
 	}
 	
+	public void Check () {
+		if(false/*조건 너주삼*/) {
+			Game.socre += 100;
+			socre_board.setText("socre : "+Game.socre); 
+		}
+		else {
+			if(Game.life == 0) {
+				dispose();
+				new End();
+				Game.life = 3;
+			}
+			else
+				Game.life -= 1;
+		}
+		charter.setLocation(700,300);
+	}
+	
 	public static void main(String[] args) {
-		new Game();
+
 	}
 
 }

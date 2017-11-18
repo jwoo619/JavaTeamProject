@@ -1,9 +1,5 @@
-a@30
-bb@50
-cccc@70
-ddddd@99
-eeeeee@99
-fffffff@99
-ASDFGASDFGASDFGASDFG@99
-한글 테스트으으으@99
-애슐리 사줘야 되는거 아니냐@99
+tew@0
+qwe@0
+qwer@0
+qwer@0
+qwer@0

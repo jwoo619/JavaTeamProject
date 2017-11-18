@@ -33,7 +33,7 @@ public class Ranking extends JFrame {
 		
 		BufferedReader file = new BufferedReader(new FileReader("rank.txt"));
 		int i = 1;
-        while(true) {
+        while(i < 11) {
             String line = file.readLine();
             if (line==null) break;
             
@@ -72,7 +72,7 @@ public class Ranking extends JFrame {
 	}
 	
 	public static void main(String[] args) throws IOException {
-		//new Ranking();
+
 	}
 
 }
