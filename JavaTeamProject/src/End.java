@@ -33,6 +33,7 @@ public class End extends JFrame {
 		setVisible(true);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);	
 		
+		End.name = null;
 		End.name = JOptionPane.showInputDialog(null, "닉네임 입력","랭킹 ",-1);
 
 		if( name != null ) {
