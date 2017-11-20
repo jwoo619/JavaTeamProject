@@ -12,16 +12,11 @@ import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 public class Ranking extends JFrame {
 	
-	public Ranking() throws IOException{
+	public Ranking(MediaPlayer p) throws IOException{
 		
 		Container c = this.getContentPane();
 		c.setLayout(null);
 		
-		JFXPanel panel = new JFXPanel();	   
-        Media m = new Media("file:///" + System.getProperty("user.dir").replace('\\', '/') + "/" + "BGM/Ranking.mp3");
-        MediaPlayer p = new MediaPlayer(m);
-        p.play(); 
-        
 		JButton back = new JButton("µÚ·Î°¡±â");
 		back.setBounds(480, 850, 250, 80);
 		back.setFont(new Font("¸¼Àº °íµñ",Font.BOLD,20));
@@ -50,6 +45,7 @@ public class Ranking extends JFrame {
 			name.setBounds(350, (i*75),550,100);
 			name.setFont(new Font("¸¼Àº °íµñ",Font.BOLD,40));
 			c.add(name);
+			
 			JLabel score = new JLabel(String.valueOf(data[1]));
 			score.setBounds(1000, (i*75),550,100);
 			score.setFont(new Font("¸¼Àº °íµñ",Font.BOLD,40));

@@ -27,12 +27,7 @@ public class Start extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				p.dispose();
 				dispose();
-				try {
-					new Game();
-				} catch (IOException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				}
+				new Game();
 			}
 		});
 		c.add(start);
@@ -42,10 +37,9 @@ public class Start extends JFrame {
 		rank.setFont(new Font("¸¼Àº °íµñ",Font.BOLD,20));
 		rank.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				dispose();
-				p.dispose();
 				try {
-					new Ranking();
+					dispose();
+					new Ranking(p);
 				} catch (IOException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();

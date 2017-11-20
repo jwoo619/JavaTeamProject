@@ -15,7 +15,6 @@ import javax.swing.JOptionPane;
 import javafx.embed.swing.JFXPanel;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
-
 public class End extends JFrame {
 	
 	static String name;
@@ -25,17 +24,11 @@ public class End extends JFrame {
 		Container c = this.getContentPane();
 		c.setLayout(null);
 		
-		
 		ImageIcon bimg  = new ImageIcon("background.jpg");
 	    JLabel background  = new JLabel(bimg);
 	    background.setBounds(0, 0, 1600, 1000);
 	    c.add(background);
-	    
-		JFXPanel panel = new JFXPanel();	   
-        Media m = new Media("file:///" + System.getProperty("user.dir").replace('\\', '/') + "/" + "BGM/GAME_Over.mp3");
-        MediaPlayer p = new MediaPlayer(m);
-        p.play(); 
-        
+
 		setTitle("신과 함께");
 		setSize(1600,1000);
 		setResizable(false);
@@ -94,6 +87,6 @@ public class End extends JFrame {
 		End.name = null;
 	}
 	public static void main(String[] args) throws IOException  {
-		new End();
+		
 	}
 }
