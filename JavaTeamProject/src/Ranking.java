@@ -7,10 +7,12 @@ import java.io.FileReader;
 import java.io.IOException;
 
 import javax.swing.*;
-
+import javafx.embed.swing.JFXPanel;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 public class Ranking extends JFrame {
 	
-	public Ranking() throws IOException{
+	public Ranking(MediaPlayer p) throws IOException{
 		
 		Container c = this.getContentPane();
 		c.setLayout(null);
@@ -21,6 +23,7 @@ public class Ranking extends JFrame {
 		back.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dispose();
+				p.dispose();
 				new Start();
 			}
 		});
@@ -63,7 +66,7 @@ public class Ranking extends JFrame {
 	    JLabel background  = new JLabel(img);
 	    background.setBounds(0, 0, 1200, 1000);
 	    c.add(background);
-		
+        
 		setTitle("신과 함께");
 		setSize(1200,1000);
 		setResizable(false);

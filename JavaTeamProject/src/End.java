@@ -12,7 +12,9 @@ import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
-
+import javafx.embed.swing.JFXPanel;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 public class End extends JFrame {
 	
 	static String name;
@@ -33,7 +35,6 @@ public class End extends JFrame {
 		setVisible(true);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);	
 		
-		End.name = null;
 		End.name = JOptionPane.showInputDialog(null, "닉네임 입력","랭킹 ",-1);
 
 		if( name != null ) {
@@ -53,11 +54,10 @@ public class End extends JFrame {
 		BufferedReader file = new BufferedReader(new FileReader("rank.txt"));
 		int i = 0;
 		String[] data = new String[10];
-		while(i < 11) {
+		while(i < 10) {
 			
             String line = file.readLine();
-            System.out.println(i);
-            System.out.println(line);
+            System.out.println(i +" | "+line);
             
             if (line==null) break;
             
@@ -76,15 +76,15 @@ public class End extends JFrame {
         }
 		file.close();
 		PrintWriter pw = new PrintWriter(new FileWriter("rank.txt"));
-		if(Game.socre != -1) {
+		if(Game.socre != -1 && i != 10) {
 			data[i] = End.name+"@"+Game.socre;
+			i++;
 		}
-		for(int j = 0; j < i+1; j++) {
+		for(int j = 0; j < i; j++) {
 			pw.println(data[j]);
-			System.out.println(data[j]);
 		}
 		pw.close();	
-		
+		End.name = null;
 	}
 	public static void main(String[] args) throws IOException  {
 		

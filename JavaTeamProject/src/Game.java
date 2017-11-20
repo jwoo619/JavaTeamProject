@@ -2,13 +2,18 @@ import java.awt.*;
 import java.awt.event.*;
 import java.io.IOException;
 import javax.swing.*;
+
+import org.omg.Messaging.SyncScopeHelper;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter; 
 import java.awt.event.MouseEvent; 
 import java.awt.event.MouseListener; 
 import java.awt.event.MouseMotionListener;
-
+import javafx.embed.swing.JFXPanel;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 public class Game extends JFrame {
 	
 	JLabel charter;
@@ -17,6 +22,7 @@ public class Game extends JFrame {
 	static int socre = 0;
 	static int life  = 3;
 	String key;
+	JFXPanel panel = new JFXPanel();
 	
 	public Game() {
 		
@@ -24,7 +30,6 @@ public class Game extends JFrame {
 		c.setLayout(null);
 		
 		key = zz[(int) (Math.random() * 10)];
-		System.out.println(key.charAt(0));
 	    ImageIcon cimg  = new ImageIcon(key);
 	    charter  = new JLabel(cimg);
 	    charter.setLocation(700,300); // 위치지정
@@ -44,6 +49,12 @@ public class Game extends JFrame {
 		this.addMouseListener(new MyMouseListener()); // 마우스리스너 
 		this.addMouseMotionListener(new MyMouseListener()); // 모션리스너 
 	    
+		
+	    JFXPanel panel = new JFXPanel();	   
+        Media m = new Media("file:///" + System.getProperty("user.dir").replace('\\', '/') + "/" + "BGM/playing.mp3");
+        MediaPlayer p = new MediaPlayer(m);
+        p.play();
+        
 		setTitle("신과 함께");
 		setSize(1600,1000);
 		setResizable(false);
@@ -61,11 +72,17 @@ public class Game extends JFrame {
 			charter.setLocation(x-100, y-250); // 위치 조정
 
 			if(charter.getX() < 100 )
-			{
+			{	   
+				Media m = new Media("file:///" + System.getProperty("user.dir").replace('\\', '/') + "/" + "BGM/heaven.mp3");
+		        MediaPlayer p = new MediaPlayer(m);
+		        p.play();
 				Check (key.charAt(0) , '1');
 			}
 			else if(charter.getX() > 1300) 
-			{
+			{	   
+		        Media m = new Media("file:///" + System.getProperty("user.dir").replace('\\', '/') + "/" + "BGM/hell.mp3");
+		        MediaPlayer p = new MediaPlayer(m);
+		        p.play();
 				Check (key.charAt(0) , '2');
 			}
 		}

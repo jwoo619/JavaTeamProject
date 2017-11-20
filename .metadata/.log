@@ -129,3 +129,219 @@ org.eclipse.recommenders.utils.Logs$LogTraceException
 	at org.eclipse.recommenders.internal.calls.rcp.RcpCallModelProvider.acquireModel(RcpCallModelProvider.java:1)
 	at org.eclipse.recommenders.internal.models.rcp.PrefetchModelArchiveJob.run(PrefetchModelArchiveJob.java:43)
 	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:56)
+!SESSION 2017-11-20 17:41:54.186 -----------------------------------------------
+eclipse.buildId=4.7.1.M20171009-0410
+java.version=1.8.0_121
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=ko_KR
+Framework arguments:  -product org.eclipse.epp.package.java.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.java.product
+
+!ENTRY org.eclipse.egit.ui 2 0 2017-11-20 17:42:18.051
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\Tello'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY org.eclipse.equinox.p2.operations 4 10053 2017-11-20 17:47:56.030
+!MESSAGE Operation details
+!SUBENTRY 1 org.eclipse.equinox.p2.director 4 10053 2017-11-20 17:47:56.030
+!MESSAGE Cannot complete the install because one or more required items could not be found.
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 0 2017-11-20 17:47:56.030
+!MESSAGE Software being installed: e(fx)clipse - IDE - Juno/Indigo 0.9.0.201401250805 (org.eclipse.fx.ide.all.prekepler.feature.feature.group 0.9.0.201401250805)
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 0 2017-11-20 17:47:56.030
+!MESSAGE Missing requirement: Adaptors for PDE 0.9.0.201401250805 (org.eclipse.fx.ide.pde.adapter 0.9.0.201401250805) requires 'bundle org.eclipse.jdt.core [3.7.0,3.9.0)' but it could not be found
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 1 2017-11-20 17:47:56.030
+!MESSAGE Cannot satisfy dependency:
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2017-11-20 17:47:56.030
+!MESSAGE From: e(fx)clipse - IDE - Juno/Indigo 0.9.0.201401250805 (org.eclipse.fx.ide.all.prekepler.feature.feature.group 0.9.0.201401250805)
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2017-11-20 17:47:56.030
+!MESSAGE To: org.eclipse.fx.ide.pde.prekepler.feature.feature.group [0.9.0.201401250805]
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 1 2017-11-20 17:47:56.030
+!MESSAGE Cannot satisfy dependency:
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2017-11-20 17:47:56.030
+!MESSAGE From: e(fx)clipse - IDE - Juno/Indigo 0.9.0.201401250805 (org.eclipse.fx.ide.pde.prekepler.feature.feature.group 0.9.0.201401250805)
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2017-11-20 17:47:56.030
+!MESSAGE To: org.eclipse.fx.ide.pde.adapter [0.9.0.201401250805]
+
+!ENTRY org.eclipse.equinox.p2.operations 4 10053 2017-11-20 17:47:56.064
+!MESSAGE Operation details
+!SUBENTRY 1 org.eclipse.equinox.p2.director 4 10053 2017-11-20 17:47:56.064
+!MESSAGE Cannot complete the install because one or more required items could not be found.
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 0 2017-11-20 17:47:56.064
+!MESSAGE Software being installed: e(fx)clipse - IDE - Juno/Indigo 0.9.0.201401250805 (org.eclipse.fx.ide.all.prekepler.feature.feature.group 0.9.0.201401250805)
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 0 2017-11-20 17:47:56.064
+!MESSAGE Missing requirement: Adaptors for PDE 0.9.0.201401250805 (org.eclipse.fx.ide.pde.adapter 0.9.0.201401250805) requires 'bundle org.eclipse.jdt.core [3.7.0,3.9.0)' but it could not be found
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 1 2017-11-20 17:47:56.064
+!MESSAGE Cannot satisfy dependency:
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2017-11-20 17:47:56.064
+!MESSAGE From: e(fx)clipse - IDE - Juno/Indigo 0.9.0.201401250805 (org.eclipse.fx.ide.all.prekepler.feature.feature.group 0.9.0.201401250805)
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2017-11-20 17:47:56.064
+!MESSAGE To: org.eclipse.fx.ide.pde.prekepler.feature.feature.group [0.9.0.201401250805]
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 1 2017-11-20 17:47:56.064
+!MESSAGE Cannot satisfy dependency:
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2017-11-20 17:47:56.064
+!MESSAGE From: e(fx)clipse - IDE - Juno/Indigo 0.9.0.201401250805 (org.eclipse.fx.ide.pde.prekepler.feature.feature.group 0.9.0.201401250805)
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2017-11-20 17:47:56.064
+!MESSAGE To: org.eclipse.fx.ide.pde.adapter [0.9.0.201401250805]
+
+!ENTRY org.eclipse.equinox.p2.operations 4 10053 2017-11-20 17:47:56.089
+!MESSAGE Operation details
+!SUBENTRY 1 org.eclipse.equinox.p2.director 4 10053 2017-11-20 17:47:56.089
+!MESSAGE Cannot complete the install because one or more required items could not be found.
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 0 2017-11-20 17:47:56.089
+!MESSAGE Software being installed: e(fx)clipse - IDE - Juno/Indigo 0.9.0.201401250805 (org.eclipse.fx.ide.all.prekepler.feature.feature.group 0.9.0.201401250805)
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 0 2017-11-20 17:47:56.089
+!MESSAGE Missing requirement: Adaptors for PDE 0.9.0.201401250805 (org.eclipse.fx.ide.pde.adapter 0.9.0.201401250805) requires 'bundle org.eclipse.jdt.core [3.7.0,3.9.0)' but it could not be found
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 1 2017-11-20 17:47:56.089
+!MESSAGE Cannot satisfy dependency:
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2017-11-20 17:47:56.089
+!MESSAGE From: e(fx)clipse - IDE - Juno/Indigo 0.9.0.201401250805 (org.eclipse.fx.ide.all.prekepler.feature.feature.group 0.9.0.201401250805)
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2017-11-20 17:47:56.089
+!MESSAGE To: org.eclipse.fx.ide.pde.prekepler.feature.feature.group [0.9.0.201401250805]
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 1 2017-11-20 17:47:56.089
+!MESSAGE Cannot satisfy dependency:
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2017-11-20 17:47:56.089
+!MESSAGE From: e(fx)clipse - IDE - Juno/Indigo 0.9.0.201401250805 (org.eclipse.fx.ide.pde.prekepler.feature.feature.group 0.9.0.201401250805)
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2017-11-20 17:47:56.089
+!MESSAGE To: org.eclipse.fx.ide.pde.adapter [0.9.0.201401250805]
+
+!ENTRY org.eclipse.equinox.p2.operations 4 10053 2017-11-20 17:47:56.096
+!MESSAGE Operation details
+!SUBENTRY 1 org.eclipse.equinox.p2.director 4 10053 2017-11-20 17:47:56.096
+!MESSAGE Cannot complete the install because one or more required items could not be found.
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 0 2017-11-20 17:47:56.096
+!MESSAGE Software being installed: e(fx)clipse - IDE - Juno/Indigo 0.9.0.201401250805 (org.eclipse.fx.ide.all.prekepler.feature.feature.group 0.9.0.201401250805)
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 0 2017-11-20 17:47:56.096
+!MESSAGE Missing requirement: Adaptors for PDE 0.9.0.201401250805 (org.eclipse.fx.ide.pde.adapter 0.9.0.201401250805) requires 'bundle org.eclipse.jdt.core [3.7.0,3.9.0)' but it could not be found
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 1 2017-11-20 17:47:56.096
+!MESSAGE Cannot satisfy dependency:
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2017-11-20 17:47:56.096
+!MESSAGE From: e(fx)clipse - IDE - Juno/Indigo 0.9.0.201401250805 (org.eclipse.fx.ide.all.prekepler.feature.feature.group 0.9.0.201401250805)
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2017-11-20 17:47:56.096
+!MESSAGE To: org.eclipse.fx.ide.pde.prekepler.feature.feature.group [0.9.0.201401250805]
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 1 2017-11-20 17:47:56.096
+!MESSAGE Cannot satisfy dependency:
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2017-11-20 17:47:56.096
+!MESSAGE From: e(fx)clipse - IDE - Juno/Indigo 0.9.0.201401250805 (org.eclipse.fx.ide.pde.prekepler.feature.feature.group 0.9.0.201401250805)
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2017-11-20 17:47:56.096
+!MESSAGE To: org.eclipse.fx.ide.pde.adapter [0.9.0.201401250805]
+!SESSION 2017-11-20 17:51:02.099 -----------------------------------------------
+eclipse.buildId=4.7.1.M20171009-0410
+java.version=1.8.0_121
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=ko_KR
+
+!ENTRY org.eclipse.osgi 4 0 2017-11-20 17:51:02.380
+!MESSAGE error loading hook: org.eclipse.fx.osgi.fxloader.FXClassLoadingConfigurator
+!STACK 0
+java.lang.NoClassDefFoundError: org/eclipse/osgi/baseadaptor/HookConfigurator
+	at java.lang.ClassLoader.defineClass1(Native Method)
+	at java.lang.ClassLoader.defineClass(Unknown Source)
+	at java.security.SecureClassLoader.defineClass(Unknown Source)
+	at java.net.URLClassLoader.defineClass(Unknown Source)
+	at java.net.URLClassLoader.access$100(Unknown Source)
+	at java.net.URLClassLoader$1.run(Unknown Source)
+	at java.net.URLClassLoader$1.run(Unknown Source)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.net.URLClassLoader.findClass(Unknown Source)
+	at java.lang.ClassLoader.loadClass(Unknown Source)
+	at java.lang.ClassLoader.loadClass(Unknown Source)
+	at java.lang.Class.forName0(Native Method)
+	at java.lang.Class.forName(Unknown Source)
+	at org.eclipse.osgi.internal.hookregistry.HookRegistry.loadConfigurators(HookRegistry.java:185)
+	at org.eclipse.osgi.internal.hookregistry.HookRegistry.initialize(HookRegistry.java:106)
+	at org.eclipse.osgi.internal.framework.EquinoxContainer.<init>(EquinoxContainer.java:66)
+	at org.eclipse.osgi.launch.Equinox.<init>(Equinox.java:31)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.startup(EclipseStarter.java:303)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:239)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:653)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:590)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
+Caused by: java.lang.ClassNotFoundException: org.eclipse.osgi.baseadaptor.HookConfigurator
+	at java.net.URLClassLoader.findClass(Unknown Source)
+	at java.lang.ClassLoader.loadClass(Unknown Source)
+	at java.lang.ClassLoader.loadClass(Unknown Source)
+	... 26 more
+
+!ENTRY org.eclipse.osgi 4 0 2017-11-20 17:51:02.380
+!MESSAGE error loading hook: org.eclipse.fx.osgi.patch.PFConfigurator
+!STACK 0
+java.lang.NoClassDefFoundError: org/eclipse/osgi/baseadaptor/HookConfigurator
+	at java.lang.ClassLoader.defineClass1(Native Method)
+	at java.lang.ClassLoader.defineClass(Unknown Source)
+	at java.security.SecureClassLoader.defineClass(Unknown Source)
+	at java.net.URLClassLoader.defineClass(Unknown Source)
+	at java.net.URLClassLoader.access$100(Unknown Source)
+	at java.net.URLClassLoader$1.run(Unknown Source)
+	at java.net.URLClassLoader$1.run(Unknown Source)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.net.URLClassLoader.findClass(Unknown Source)
+	at java.lang.ClassLoader.loadClass(Unknown Source)
+	at java.lang.ClassLoader.loadClass(Unknown Source)
+	at java.lang.Class.forName0(Native Method)
+	at java.lang.Class.forName(Unknown Source)
+	at org.eclipse.osgi.internal.hookregistry.HookRegistry.loadConfigurators(HookRegistry.java:185)
+	at org.eclipse.osgi.internal.hookregistry.HookRegistry.initialize(HookRegistry.java:106)
+	at org.eclipse.osgi.internal.framework.EquinoxContainer.<init>(EquinoxContainer.java:66)
+	at org.eclipse.osgi.launch.Equinox.<init>(Equinox.java:31)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.startup(EclipseStarter.java:303)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:239)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:653)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:590)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
+Caused by: java.lang.ClassNotFoundException: org.eclipse.osgi.baseadaptor.HookConfigurator
+	at java.net.URLClassLoader.findClass(Unknown Source)
+	at java.lang.ClassLoader.loadClass(Unknown Source)
+	at java.lang.ClassLoader.loadClass(Unknown Source)
+	... 26 more
+
+!ENTRY org.eclipse.fx.ide.java6 4 0 2017-11-20 17:51:04.177
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: Could not resolve module: org.eclipse.fx.ide.java6 [532]
+  Unresolved requirement: Require-Capability: osgi.ee; filter:="(&(osgi.ee=JavaSE)(version>=1.3)(!(version>=1.7)))"
+
+	at org.eclipse.osgi.container.Module.start(Module.java:444)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1634)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1613)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1585)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1528)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:230)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:340)
+
+!ENTRY org.eclipse.egit.ui 2 0 2017-11-20 17:51:17.915
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\Tello'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY org.eclipse.recommenders.models.rcp 1 11 2017-11-20 18:09:47.127
+!MESSAGE The model index service was accessed either before it started or after it finished running.
+!STACK 0
+org.eclipse.recommenders.utils.Logs$LogTraceException
+	at org.eclipse.recommenders.utils.Logs$LogTraceException.newTrace(Logs.java:381)
+	at org.eclipse.recommenders.utils.Logs.log(Logs.java:134)
+	at org.eclipse.recommenders.utils.Logs.log(Logs.java:126)
+	at org.eclipse.recommenders.internal.models.rcp.EclipseModelIndex.suggest(EclipseModelIndex.java:211)
+	at org.eclipse.recommenders.models.SimpleModelProvider.acquireModel(SimpleModelProvider.java:70)
+	at org.eclipse.recommenders.models.PoolingModelProvider.access$0(PoolingModelProvider.java:1)
+	at org.eclipse.recommenders.models.PoolingModelProvider$ModelPoolFactoryMediator.makeObject(PoolingModelProvider.java:96)
+	at org.eclipse.recommenders.models.PoolingModelProvider$ModelPoolFactoryMediator.makeObject(PoolingModelProvider.java:1)
+	at org.apache.commons.pool.impl.GenericKeyedObjectPool.borrowObject(GenericKeyedObjectPool.java:1220)
+	at org.eclipse.recommenders.models.PoolingModelProvider.acquireModel(PoolingModelProvider.java:67)
+	at org.eclipse.recommenders.internal.calls.rcp.RcpCallModelProvider.acquireModel(RcpCallModelProvider.java:65)
+	at org.eclipse.recommenders.internal.calls.rcp.RcpCallModelProvider.acquireModel(RcpCallModelProvider.java:1)
+	at org.eclipse.recommenders.internal.models.rcp.PrefetchModelArchiveJob.run(PrefetchModelArchiveJob.java:43)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:56)
