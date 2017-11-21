@@ -1,0 +1,110 @@
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import javax.swing.*;
+import javafx.embed.swing.JFXPanel;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
+
+public class Ranking extends JFrame {
+	
+	public Ranking() throws IOException{
+		
+		//레이아웃 설정
+		Container c = this.getContentPane();
+		c.setLayout(null);
+		
+		//BGM설정
+		JFXPanel panel = new JFXPanel();	   
+        Media m = new Media("file:///" + System.getProperty("user.dir").replace('\\', '/') + "/" + "BGM/Ranking.mp3");
+        MediaPlayer p = new MediaPlayer(m);
+        
+        //rank라벨 설정
+        JLabel rank = new JLabel("Rank");
+		rank.setBounds(535, 15, 250, 80);
+		rank.setFont(new Font("맑은 고딕",Font.BOLD,50));
+		rank.setForeground(Color.WHITE);
+		
+		//back버튼 설정
+		JButton back = new JButton("뒤로가기");
+		back.setBounds(480, 850, 250, 80);
+		back.setFont(new Font("맑은 고딕",Font.BOLD,20));
+		back.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+				p.dispose();
+				new Start();
+			}
+		});
+				
+        //배경 설정
+        ImageIcon img  = new ImageIcon("image/background_Rank.jpg");
+	    JLabel background  = new JLabel(img);
+	    background.setBounds(0, 0, 1200, 1000);
+		
+	    //파일 내용 읽어서 이름 점수 라벨 등록 및 설정
+		BufferedReader file = new BufferedReader(new FileReader("rank.txt"));
+		JLabel name = new JLabel();
+		JLabel score = new JLabel();
+		int i = 1;
+        while(i < 11) {
+        	
+            String line = file.readLine();
+            
+            if (line==null) break;
+            
+            String[] data = line.split("@");
+            name.setText(String.valueOf(data[0]));
+			name.setBounds(350, (i*75),550,100);
+			name.setFont(new Font("맑은 고딕",Font.BOLD,40));
+			name.setForeground(Color.WHITE);
+			
+			score.setText(String.valueOf(data[1]));
+			score.setBounds(1000, (i*75),550,100);
+			score.setFont(new Font("맑은 고딕",Font.BOLD,40));
+			score.setForeground(Color.WHITE);
+			
+			add(name);
+			add(score);
+			
+			i += 1 ;
+        }
+        file.close();
+        
+        //등수 라벨 설정 및 추가
+        int j = 1;
+        for(j = 1; j < i; j++) {
+			JLabel num = new JLabel(String.valueOf(j));
+			num.setBounds(200, (j*75),100,100);
+			num.setFont(new Font("맑은 고딕",Font.BOLD,40));
+			num.setForeground(Color.WHITE);
+			add(num);
+		}
+        
+	    //재생 및 추가
+	    p.play();
+	    add(rank);
+	    add(back);
+	    add(background);
+	    
+	    //창 설정
+	    Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
+	    setLocation((dim.width/2) - 600, (dim.height/2) - 500);
+	    Toolkit toolkit = Toolkit.getDefaultToolkit();
+	    Image icon = toolkit.getImage("image/Logo.png");
+	    setIconImage(icon);
+		setTitle("신과 함께");
+		setSize(1200,1000);
+		setResizable(false);
+		setVisible(true);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);	
+	}
+	
+	public static void main(String[] args) throws IOException {
+		new Ranking();
+	}
+
+}

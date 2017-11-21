@@ -1,0 +1,117 @@
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
+
+import javax.swing.ImageIcon;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javafx.embed.swing.JFXPanel;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
+
+public class End extends JFrame {
+	
+	static String name;
+	
+	End(){
+		
+		//레이아웃 설정
+		Container c = this.getContentPane();
+		c.setLayout(null);
+		
+		//BGM 설정
+		JFXPanel panel = new JFXPanel();	   
+        Media m = new Media("file:///" + System.getProperty("user.dir").replace('\\', '/') + "/" + "BGM/GAME_Over.mp3");
+        MediaPlayer p = new MediaPlayer(m);
+        
+        //배경설정
+		ImageIcon bimg  = new ImageIcon("image/backgroundw.jpg");
+	    JLabel background  = new JLabel(bimg);
+	    background.setBounds(0, 0, 1200, 1000);
+	            
+        //추가 및 재생
+        p.play();
+        add(background);
+        
+        //창 설정
+	    Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
+	    setLocation((dim.width/2) - 600, (dim.height/2) - 500);
+	    Toolkit toolkit = Toolkit.getDefaultToolkit();
+	    Image icon = toolkit.getImage("image/Logo.png");
+	    setIconImage(icon);
+		setTitle("신과 함께");
+		setSize(1200,1000);
+		setResizable(false);
+		setVisible(true);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);	
+		
+		//입력 창 설정
+		End.name = JOptionPane.showInputDialog(null, "닉네임 입력","랭킹 ",-1);
+		
+		//취소 안눌렀을 경우
+		if( name != null ) {		
+			try {
+				reset();
+			} catch (IOException e1) {
+				e1.printStackTrace();
+			}	
+		}
+		
+		//종료 후 메인으로
+		dispose();
+		new Start();
+		
+	}
+	
+	public static void reset() throws IOException {
+		
+		BufferedReader file = new BufferedReader(new FileReader("text/rank.txt"));
+		int i = 0;
+		String[] data = new String[10];
+		
+		while(i < 10) {
+			
+            String line = file.readLine();
+            
+            if (line==null) break;
+            
+            data[i] = line;
+            int name_length = data[i].indexOf("@");
+            int user_score = Integer.parseInt(data[i].substring(name_length+1));
+            
+            if(Game.socre > user_score) {
+            	String temp = data[i];
+            	data[i] = End.name+"@"+Game.socre;
+            	data[++i] = temp;
+            	Game.socre = -1;
+            }    	
+            i++;   
+        }
+		file.close();
+		
+		PrintWriter pw = new PrintWriter(new FileWriter("text/rank.txt"));
+		
+		if(Game.socre != -1 && i != 10) {
+			data[i] = End.name+"@"+Game.socre;
+			i++;
+		}
+		
+		for(int j = 0; j < i; j++) {
+			pw.println(data[j]);
+		}
+		pw.close();	
+		
+		End.name = null;
+	}
+	
+	public static void main(String[] args) throws IOException  {
+		new End();
+	}
+}

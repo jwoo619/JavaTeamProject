@@ -1,121 +1,125 @@
 import java.awt.*;
-import java.awt.event.*;
 import java.io.BufferedReader;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.Timer;
 import java.util.TimerTask;
-
 import javax.swing.*;
-
-import org.omg.Messaging.SyncScopeHelper;
-
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter; 
 import java.awt.event.MouseEvent; 
-import java.awt.event.MouseListener; 
 import java.awt.event.MouseMotionListener;
 import javafx.embed.swing.JFXPanel;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
+
 public class Game extends JFrame {
 	
-	JLabel charter;
-	JLabel socre_board;
-	JLabel talk;
-	JLabel life;
-	String[] zz = {"image/1@천국1.png","image/1@천국2.png","image/1@천국3.png","image/1@천국4.png","image/1@천국5.png","image/2@지옥1.png","image/2@지옥2.png","image/2@지옥3.png","image/2@지옥4.png","image/2@지옥5.png"};
-	static int socre = 0;
-	static int life_n  = 3;
-	String key;
+	JLabel charter, score_board, life, talk;
+	String select_charter;
+	String[] charter_arr = {"image/1@천국1.png","image/1@천국2.png","image/1@천국3.png","image/1@천국4.png","image/1@천국5.png","image/2@지옥1.png","image/2@지옥2.png","image/2@지옥3.png","image/2@지옥4.png","image/2@지옥5.png"};
+	String[] comment_arr = new String[1260];
 	JFXPanel panel = new JFXPanel();
-	String[] comment = new String[1260];
-	static int count = 60;
+	Timer timer;
+	MediaPlayer p;
+	
+	static int score, life_num, count;
 	
 	public Game() throws IOException {
 		
-		
-		 
+		//레이아웃 설정
 		Container c = this.getContentPane();
 		c.setLayout(null);
 		
-		key = zz[(int) (Math.random() * 10)];
-	    ImageIcon cimg  = new ImageIcon(key);
+		//변수 초기화
+		Game.life_num = 3;
+		Game.score = 0;
+		Game.count = 60;
+		
+		//BGM 설정
+	    JFXPanel panel = new JFXPanel();	   
+        Media m = new Media("file:///" + System.getProperty("user.dir").replace('\\', '/') + "/" + "BGM/playing.mp3");
+        p = new MediaPlayer(m);
+        
+		//캐릭터 선택 및 설정
+		select_charter = charter_arr[(int) (Math.random() * 10)];
+	    ImageIcon cimg  = new ImageIcon(select_charter);
 	    charter  = new JLabel(cimg);
-	    charter.setLocation(700,300); // 위치지정
-		charter.setSize(200,400); // 크기 지정 
-	    add(charter);
+	    charter.setLocation(700,450);
+		charter.setSize(200,400);
 	    
+		//라이프 라벨 설정
 	    life = new JLabel("LIFE : ♥ ♥ ♥ ♥");
-	    life.setBounds(1200,10,400,100);
+	    life.setBounds(1200,0,400,100);
 	    life.setFont(new Font("", Font.PLAIN, 50));
-	    add(life);
 	    
-	    socre_board = new JLabel("score : 0");
-	    socre_board.setBounds(700,10,400,100);
-	    socre_board.setFont(new Font("", Font.PLAIN, 50));
-		add(socre_board);
+	    //점수판 라벨 설정
+	    score_board = new JLabel("score : 0");
+	    score_board.setBounds(700,0,500,100);
+	    score_board.setFont(new Font("", Font.PLAIN, 50));
 	    
-	    ImageIcon bimg  = new ImageIcon("image/background_gameplay.jpg");
-	    JLabel background  = new JLabel(bimg);
-	    background.setBounds(0, 0, 1600, 1000);
-	    
-		this.addMouseListener(new MyMouseListener()); // 마우스리스너 
-		this.addMouseMotionListener(new MyMouseListener()); // 모션리스너 
-	    
-		JLabel cnt = new JLabel("60");
-		cnt.setFont(new Font("", Font.PLAIN, 50));
-		cnt.setBounds(800,50,100,100);
-		add(cnt);
-		Timer a = new Timer();
-		TimerTask b = new TimerTask() {
-			
-			@Override
-			public void run() {
-				if(count == 0)
-				{
-					dispose();
-					new End();
-					Game.life_n = 3;
-					Game.socre = 0;
-					a.cancel();
-				}
-				else {
-					count -=1 ;
-					cnt.setText(count+"");
-				}
-				
-			}
-		};
-		a.schedule(b, 0,1000);
-
-		BufferedReader file = new BufferedReader(new FileReader("comment.txt"));
+	    //코멘트 파일 가져오기
+		BufferedReader file = new BufferedReader(new FileReader("text/comment.txt"));
 		String data;
 		int i = 0;
 		
 		while(true) {
 	            String line = file.readLine();
 	            if (line==null) break;
-	            comment[i] = line;	            
+	            comment_arr[i] = line;	            
 	            i++;
 	    }
 		file.close();
 		
-		String asd =comment[(int) (Math.random() * 1259)];
-		System.out.println(asd);
-		talk = new JLabel(comment[(int) (Math.random() * 1259)]);
+		//코멘트 라벨 설정
+		String comment =comment_arr[(int) (Math.random() * 1259)];
+		talk = new JLabel(comment_arr[(int) (Math.random() * 1259)]);
 		talk.setFont(new Font("", Font.PLAIN, 30));
-		talk.setBounds(600,100,1000,100);
-		add(talk);
-		add(background);
+		talk.setBounds(650,200,1000,100);
+	    
+		//타이머 라벨 설정
+		JLabel cnt = new JLabel("60");
+		cnt.setFont(new Font("", Font.PLAIN, 50));
+		cnt.setBounds(700,60,300,100);
 		
-	    JFXPanel panel = new JFXPanel();	   
-        Media m = new Media("file:///" + System.getProperty("user.dir").replace('\\', '/') + "/" + "BGM/playing.mp3");
-        MediaPlayer p = new MediaPlayer(m);
+		//타이머 설정
+		timer = new Timer();
+		TimerTask task = new TimerTask() {
+			
+			@Override
+			public void run() {
+				if(count == 0)
+				{
+					new End();
+					dispose();
+					p.dispose();
+					timer.cancel();
+				}
+				else {
+					count -=1 ;
+					cnt.setText("Time : " + count + "");
+				}
+				
+			}
+		};
+		timer.schedule(task, 0,1000);
+		
+		//배경 설정
+	    ImageIcon bimg  = new ImageIcon("image/background_gameplay.jpg");
+	    JLabel background  = new JLabel(bimg);
+	    background.setBounds(0, 0, 1600, 1000);
+		
+        //추가 및 재생
         p.play();
+        add(charter);
+        add(life);
+        add(score_board);
+        add(talk);
+        add(cnt);
+        add(background);
         
+		this.addMouseListener(new MyMouseListener()); // 마우스리스너 
+		this.addMouseMotionListener(new MyMouseListener()); // 모션리스너 
+		
         //창 설정
         Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
 	    setLocation((dim.width/2) - 800, (dim.height/2) - 500);
@@ -128,58 +132,65 @@ public class Game extends JFrame {
 	
 	class MyMouseListener extends MouseAdapter implements MouseMotionListener{ 
 		
-	
-		public void mouseDragged(MouseEvent e){ // 드래그일시
+		//드래그
+		public void mouseDragged(MouseEvent e){
 			int x = e.getX();
 			int y = e.getY();
 			if((charter.getX() < x && charter.getX()+200 > x) && (charter.getY()+80 < y && charter.getY()+370 > y))
-			charter.setLocation(x-100, y-250); // 위치 조정
-
+			charter.setLocation(x-100, y-250);
+			
+			//천국
 			if(charter.getX() < 100 )
 			{	   
 				Media m = new Media("file:///" + System.getProperty("user.dir").replace('\\', '/') + "/" + "BGM/heaven.mp3");
 		        MediaPlayer p = new MediaPlayer(m);
 		        p.play();
-				Check (key.charAt(6) , '1');
+				Check (select_charter.charAt(6) , '1');
 			}
+			
+			//지옥
 			else if(charter.getX() > 1300) 
 			{	   
 		        Media m = new Media("file:///" + System.getProperty("user.dir").replace('\\', '/') + "/" + "BGM/hell.mp3");
 		        MediaPlayer p = new MediaPlayer(m);
 		        p.play();
-				Check (key.charAt(6) , '2');
+				Check (select_charter.charAt(6) , '2');
 			}
 		}
 	}
 	
 	public void Check (char a , char b) {
-		System.out.println(a+" | "+b);
+		
+		//판별
 		if(a == b) {
-			
-			Game.socre += 100;
-			socre_board.setText("socre : "+Game.socre);
-			
+			Game.score += 100;
+			score_board.setText("score : "+Game.score);
 		}
+		
 		else {
-			if(Game.life_n == 0) {
+			if(Game.life_num == 0) {
+				p.dispose();
+				timer.cancel();
 				dispose();
 				new End();
-				Game.life_n = 3;
-				Game.socre = 0;
 			}
 			else
-				Game.life_n -= 1;
-				if(life_n ==2)
+			{
+				Game.life_num -= 1;
+				
+				if(life_num ==2)
 					life.setText("LIFE : ♥ ♥ ♥");
-				else if(life_n == 1)
+				else if(life_num == 1)
 					life.setText("LIFE : ♥ ♥");
 				else
 					life.setText("LIFE : ♥");
+			}
 		}
-		key = zz[(int) (Math.random() * 10)];
-		charter.setIcon(new ImageIcon(key));
-		charter.setLocation(700,300);
-		talk.setText(comment[(int) (Math.random() * 1259)]);
+		
+		select_charter = charter_arr[(int) (Math.random() * 10)];
+		charter.setIcon(new ImageIcon(select_charter));
+		charter.setLocation(700,450);
+		talk.setText(comment_arr[(int) (Math.random() * 1259)]);
 	}
 	
 	public static void main(String[] args) {
