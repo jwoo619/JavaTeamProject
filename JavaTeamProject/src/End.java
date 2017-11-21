@@ -26,18 +26,21 @@ public class End extends JFrame {
 		c.setLayout(null);
 		
 		
-		ImageIcon bimg  = new ImageIcon("background.jpg");
+		ImageIcon bimg  = new ImageIcon("image/backgroundw.jpg");
 	    JLabel background  = new JLabel(bimg);
-	    background.setBounds(0, 0, 1600, 1000);
+	    background.setBounds(0, 0, 1200, 1000);
 	    c.add(background);
 	    
 		JFXPanel panel = new JFXPanel();	   
         Media m = new Media("file:///" + System.getProperty("user.dir").replace('\\', '/') + "/" + "BGM/GAME_Over.mp3");
         MediaPlayer p = new MediaPlayer(m);
-        p.play(); 
+        p.play();
         
+	    Toolkit toolkit = Toolkit.getDefaultToolkit();
+	    Image icon = toolkit.getImage("image/Logo.png");
+	    setIconImage(icon);
 		setTitle("신과 함께");
-		setSize(1600,1000);
+		setSize(1200,1000);
 		setResizable(false);
 		setVisible(true);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);	

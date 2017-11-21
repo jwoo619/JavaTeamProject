@@ -26,7 +26,7 @@ public class Game extends JFrame {
 	JLabel socre_board;
 	JLabel talk;
 	JLabel life;
-	String[] zz = {"1@천국1.png","1@천국2.png","1@천국3.png","1@천국4.png","1@천국5.png","2@지옥1.png","2@지옥2.png","2@지옥3.png","2@지옥4.png","2@지옥5.png"};
+	String[] zz = {"image/1@천국1.png","image/1@천국2.png","image/1@천국3.png","image/1@천국4.png","image/1@천국5.png","image/2@지옥1.png","image/2@지옥2.png","image/2@지옥3.png","image/2@지옥4.png","image/2@지옥5.png"};
 	static int socre = 0;
 	static int life_n  = 3;
 	String key;
@@ -48,7 +48,7 @@ public class Game extends JFrame {
 		charter.setSize(200,400); // 크기 지정 
 	    add(charter);
 	    
-	    life = new JLabel("LIFE : ♥ ♥ ♥");
+	    life = new JLabel("LIFE : ♥ ♥ ♥ ♥");
 	    life.setBounds(1200,10,400,100);
 	    life.setFont(new Font("", Font.PLAIN, 50));
 	    add(life);
@@ -58,10 +58,12 @@ public class Game extends JFrame {
 	    socre_board.setFont(new Font("", Font.PLAIN, 50));
 		add(socre_board);
 	    
-	    ImageIcon bimg  = new ImageIcon("background.jpg");
+	    ImageIcon bimg  = new ImageIcon("image/background_gameplay.jpg");
 	    JLabel background  = new JLabel(bimg);
 	    background.setBounds(0, 0, 1600, 1000);
 	    
+		this.addMouseListener(new MyMouseListener()); // 마우스리스너 
+		this.addMouseMotionListener(new MyMouseListener()); // 모션리스너 
 	    
 		JLabel cnt = new JLabel("60");
 		cnt.setFont(new Font("", Font.PLAIN, 50));
@@ -78,6 +80,7 @@ public class Game extends JFrame {
 					new End();
 					Game.life_n = 3;
 					Game.socre = 0;
+					a.cancel();
 				}
 				else {
 					count -=1 ;
@@ -86,7 +89,7 @@ public class Game extends JFrame {
 				
 			}
 		};
-		a.schedule(b, 6000,1000);
+		a.schedule(b, 0,1000);
 
 		BufferedReader file = new BufferedReader(new FileReader("comment.txt"));
 		String data;
@@ -113,23 +116,14 @@ public class Game extends JFrame {
         MediaPlayer p = new MediaPlayer(m);
         p.play();
         
-        
+        //창 설정
+        Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
+	    setLocation((dim.width/2) - 800, (dim.height/2) - 500);
 		setTitle("신과 함께");
 		setSize(1600,1000);
 		setResizable(false);
 		setVisible(true);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);	
-		
-		try {
-			Thread.sleep(5000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
-		this.addMouseListener(new MyMouseListener()); // 마우스리스너 
-		this.addMouseMotionListener(new MyMouseListener()); // 모션리스너 
-		
 	}
 	
 	class MyMouseListener extends MouseAdapter implements MouseMotionListener{ 
@@ -146,19 +140,20 @@ public class Game extends JFrame {
 				Media m = new Media("file:///" + System.getProperty("user.dir").replace('\\', '/') + "/" + "BGM/heaven.mp3");
 		        MediaPlayer p = new MediaPlayer(m);
 		        p.play();
-				Check (key.charAt(0) , '1');
+				Check (key.charAt(6) , '1');
 			}
 			else if(charter.getX() > 1300) 
 			{	   
 		        Media m = new Media("file:///" + System.getProperty("user.dir").replace('\\', '/') + "/" + "BGM/hell.mp3");
 		        MediaPlayer p = new MediaPlayer(m);
 		        p.play();
-				Check (key.charAt(0) , '2');
+				Check (key.charAt(6) , '2');
 			}
 		}
 	}
 	
 	public void Check (char a , char b) {
+		System.out.println(a+" | "+b);
 		if(a == b) {
 			
 			Game.socre += 100;
@@ -175,11 +170,11 @@ public class Game extends JFrame {
 			else
 				Game.life_n -= 1;
 				if(life_n ==2)
-					life.setText("LIFE : ♥ ♥");
+					life.setText("LIFE : ♥ ♥ ♥");
 				else if(life_n == 1)
-					life.setText("LIFE : ♥");
+					life.setText("LIFE : ♥ ♥");
 				else
-					life.setText("LIFE :");
+					life.setText("LIFE : ♥");
 		}
 		key = zz[(int) (Math.random() * 10)];
 		charter.setIcon(new ImageIcon(key));

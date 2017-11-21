@@ -37,6 +37,7 @@ public class Ranking extends JFrame {
 		JLabel rank = new JLabel("Rank");
 		rank.setBounds(535, 15, 250, 80);
 		rank.setFont(new Font("¸¼Àº °íµñ",Font.BOLD,50));
+		rank.setForeground(Color.WHITE);
 		c.add(rank);
 		
 		BufferedReader file = new BufferedReader(new FileReader("rank.txt"));
@@ -49,10 +50,12 @@ public class Ranking extends JFrame {
 			JLabel name = new JLabel(String.valueOf(data[0]));
 			name.setBounds(350, (i*75),550,100);
 			name.setFont(new Font("¸¼Àº °íµñ",Font.BOLD,40));
+			name.setForeground(Color.WHITE);
 			c.add(name);
 			JLabel score = new JLabel(String.valueOf(data[1]));
 			score.setBounds(1000, (i*75),550,100);
 			score.setFont(new Font("¸¼Àº °íµñ",Font.BOLD,40));
+			score.setForeground(Color.WHITE);
 			c.add(score);
 			
 			i += 1 ;
@@ -63,14 +66,21 @@ public class Ranking extends JFrame {
 			JLabel num = new JLabel(String.valueOf(j));
 			num.setBounds(200, (j*75),100,100);
 			num.setFont(new Font("¸¼Àº °íµñ",Font.BOLD,40));
+			num.setForeground(Color.WHITE);
 			c.add(num);
 		}
         
-        ImageIcon img  = new ImageIcon("background.jpg");
+        ImageIcon img  = new ImageIcon("image/background_Rank.jpg");
 	    JLabel background  = new JLabel(img);
 	    background.setBounds(0, 0, 1200, 1000);
 	    c.add(background);
-        
+	    
+	    //Ã¢ ¼³Á¤
+	    Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
+	    setLocation((dim.width/2) - 600, (dim.height/2) - 500);
+	    Toolkit toolkit = Toolkit.getDefaultToolkit();
+	    Image icon = toolkit.getImage("image/Logo.png");
+	    setIconImage(icon);
 		setTitle("½Å°ú ÇÔ²²");
 		setSize(1200,1000);
 		setResizable(false);
@@ -79,7 +89,7 @@ public class Ranking extends JFrame {
 	}
 	
 	public static void main(String[] args) throws IOException {
-
+		new Ranking();
 	}
 
 }
