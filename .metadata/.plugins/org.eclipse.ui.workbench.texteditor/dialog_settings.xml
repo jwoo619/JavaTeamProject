@@ -2,12 +2,18 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="life_n" key="selection"/>
+		<item value="back" key="selection"/>
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
+			<item value="back"/>
+			<item value="life_n"/>
+			<item value="comment"/>
+			<item value="asd"/>
+			<item value="socre"/>
+			<item value="key"/>
 			<item value="life"/>
 			<item value="box"/>
 			<item value="offY"/>
@@ -17,6 +23,10 @@
 			<item value="jb1"/>
 		</list>
 		<list key="replacehistory">
+			<item value="life_num"/>
+			<item value="comment_arr"/>
+			<item value="score"/>
+			<item value="select_charter"/>
 			<item value="life_n"/>
 			<item value="charter"/>
 			<item value="M_Y"/>
@@ -30,7 +40,7 @@
 		<item value="340" key="DIALOG_WIDTH"/>
 		<item value="1|맑은 고딕|9.0|0|WINDOWS|1|-15|0|0|0|400|0|0|0|1|0|0|0|0|맑은 고딕" key="DIALOG_FONT_NAME"/>
 		<item value="454" key="DIALOG_HEIGHT"/>
-		<item value="614" key="DIALOG_X_ORIGIN"/>
-		<item value="408" key="DIALOG_Y_ORIGIN"/>
+		<item value="872" key="DIALOG_X_ORIGIN"/>
+		<item value="417" key="DIALOG_Y_ORIGIN"/>
 	</section>
 </section>

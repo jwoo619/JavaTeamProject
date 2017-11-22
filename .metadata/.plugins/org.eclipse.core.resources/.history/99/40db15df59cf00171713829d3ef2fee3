@@ -181,17 +181,17 @@ public class Game extends JFrame {
 					Runnable r = new Runnable() {
 				      @Override
 				      public void run() {
-				        for (int i = 0; i < 2; i++) {
+				        for (int i = 0; i < 30; i++) {
 				          try {
 
 								background.setLocation(50, 50);
-								Thread.sleep(35);
+								Thread.sleep(75);
 								background.setLocation(0, 0);
-								Thread.sleep(35);
+								Thread.sleep(75);
 								background.setLocation(-50, -50);
-								Thread.sleep(35);
+								Thread.sleep(75);
 								background.setLocation(0, 0);
-								Thread.sleep(35);
+								Thread.sleep(75);
 				          } catch (InterruptedException ex) {
 				            ex.printStackTrace();
 				          }

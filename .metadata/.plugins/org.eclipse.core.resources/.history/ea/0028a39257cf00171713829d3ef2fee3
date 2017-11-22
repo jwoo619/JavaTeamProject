@@ -177,32 +177,12 @@ public class Game extends JFrame {
 				new End();
 			}
 			else
-			{	
-					Runnable r = new Runnable() {
-				      @Override
-				      public void run() {
-				        for (int i = 0; i < 2; i++) {
-				          try {
-
-								background.setLocation(50, 50);
-								Thread.sleep(35);
-								background.setLocation(0, 0);
-								Thread.sleep(35);
-								background.setLocation(-50, -50);
-								Thread.sleep(35);
-								background.setLocation(0, 0);
-								Thread.sleep(35);
-				          } catch (InterruptedException ex) {
-				            ex.printStackTrace();
-				          }
-				        }
-				      }
-				    };
-				    Thread t = new Thread(r);
-				    t.start();
-
-		        Game.life_num -= 1;
-
+			{
+				Game.life_num -= 1;
+				background.setLocation(50, 50);
+				background.setLocation(0, 0);
+				background.setLocation(-50, -50);
+				background.setLocation(0, 0);
 				if(life_num ==2)
 					life.setText("LIFE : ¢¾ ¢¾ ¢¾");
 				else if(life_num == 1)

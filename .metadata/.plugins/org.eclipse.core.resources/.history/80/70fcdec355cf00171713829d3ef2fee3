@@ -9,13 +9,12 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent; 
 import java.awt.event.MouseMotionListener;
 import javafx.embed.swing.JFXPanel;
-import javafx.scene.layout.Background;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 
 public class Game extends JFrame {
 	
-	JLabel charter, score_board, life, talk , background;
+	JLabel charter, score_board, life, talk;
 	String select_charter;
 	String[] charter_arr = {"image/1@Ãµ±¹1.png","image/1@Ãµ±¹2.png","image/1@Ãµ±¹3.png","image/1@Ãµ±¹4.png","image/1@Ãµ±¹5.png","image/2@Áö¿Á1.png","image/2@Áö¿Á2.png","image/2@Áö¿Á3.png","image/2@Áö¿Á4.png","image/2@Áö¿Á5.png"};
 	String[] comment_arr = new String[1260];
@@ -106,7 +105,7 @@ public class Game extends JFrame {
 		
 		//¹è°æ ¼³Á¤
 	    ImageIcon bimg  = new ImageIcon("image/background_gameplay.jpg");
-	    background  = new JLabel(bimg);
+	    JLabel background  = new JLabel(bimg);
 	    background.setLocation(0, 0);
 	    background.setSize(1600, 1000);
 		
@@ -177,32 +176,9 @@ public class Game extends JFrame {
 				new End();
 			}
 			else
-			{	
-					Runnable r = new Runnable() {
-				      @Override
-				      public void run() {
-				        for (int i = 0; i < 2; i++) {
-				          try {
-
-								background.setLocation(50, 50);
-								Thread.sleep(35);
-								background.setLocation(0, 0);
-								Thread.sleep(35);
-								background.setLocation(-50, -50);
-								Thread.sleep(35);
-								background.setLocation(0, 0);
-								Thread.sleep(35);
-				          } catch (InterruptedException ex) {
-				            ex.printStackTrace();
-				          }
-				        }
-				      }
-				    };
-				    Thread t = new Thread(r);
-				    t.start();
-
-		        Game.life_num -= 1;
-
+			{
+				Game.life_num -= 1;
+				
 				if(life_num ==2)
 					life.setText("LIFE : ¢¾ ¢¾ ¢¾");
 				else if(life_num == 1)
