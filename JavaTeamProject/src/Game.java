@@ -17,7 +17,7 @@ public class Game extends JFrame {
 	
 	JLabel charter, score_board, life, talk , background;
 	String select_charter;
-	String[] charter_arr = {"image/1@천국1.png","image/1@천국2.png","image/1@천국3.png","image/1@천국4.png","image/1@천국5.png","image/2@지옥1.png","image/2@지옥2.png","image/2@지옥3.png","image/2@지옥4.png","image/2@지옥5.png"};
+	String[] charter_arr = {"image/1@천국1.png","image/1@천국2.png","image/1@천국3.png","image/1@천국4.png","image/1@천국5.png","image/2@지옥1.png","image/2@지옥2.png","image/2@지옥3.png","image/2@지옥4.png","image/2@지옥5.png","image/1@천국6.png","image/1@천국7.png","image/1@천국8.png","image/1@천국9.png","image/1@천국10.png","image/2@지옥6.png","image/2@지옥7.png","image/2@지옥8.png","image/2@지옥9.png","image/2@지옥10.png"};
 	String[] comment_arr = new String[1260];
 	JFXPanel panel = new JFXPanel();
 	Timer timer;
@@ -50,11 +50,13 @@ public class Game extends JFrame {
 	    
 		//라이프 라벨 설정
 	    life = new JLabel("LIFE : ♥ ♥ ♥ ♥");
+	    life.setForeground(Color.RED);
 	    life.setBounds(1200,0,400,100);
 	    life.setFont(new Font("", Font.PLAIN, 50));
 	    
 	    //점수판 라벨 설정
 	    score_board = new JLabel("score : 0");
+	    score_board.setForeground(Color.WHITE);
 	    score_board.setBounds(700,0,500,100);
 	    score_board.setFont(new Font("", Font.PLAIN, 50));
 	    
@@ -74,11 +76,17 @@ public class Game extends JFrame {
 		//코멘트 라벨 설정
 		String comment =comment_arr[(int) (Math.random() * 1259)];
 		talk = new JLabel(comment_arr[(int) (Math.random() * 1259)]);
+		talk.setOpaque(true);
+		talk.setForeground(Color.WHITE);
+		Color color = new Color(0x50000000,true);
+		talk.setBackground(color);
 		talk.setFont(new Font("", Font.PLAIN, 30));
-		talk.setBounds(650,200,1000,100);
+		talk.setHorizontalAlignment(talk.CENTER);
+		talk.setBounds(0,200,1600,100);
 	    
 		//타이머 라벨 설정
 		JLabel cnt = new JLabel("60");
+		cnt.setForeground(Color.WHITE);
 		cnt.setFont(new Font("", Font.PLAIN, 50));
 		cnt.setBounds(700,60,300,100);
 		
@@ -105,7 +113,7 @@ public class Game extends JFrame {
 		timer.schedule(task, 0,1000);
 		
 		//배경 설정
-	    ImageIcon bimg  = new ImageIcon("image/background_gameplay.jpg");
+	    ImageIcon bimg  = new ImageIcon("image/background_gameplay.gif");
 	    background  = new JLabel(bimg);
 	    background.setLocation(0, 0);
 	    background.setSize(1600, 1000);
@@ -219,12 +227,6 @@ public class Game extends JFrame {
 	}
 	
 	public static void main(String[] args) {
-		try {
-			new Game();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
 	}
 
 }
