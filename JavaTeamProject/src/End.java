@@ -1,8 +1,5 @@
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.io.BufferedReader;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -55,9 +52,10 @@ public class End extends JFrame {
 		//입력 창 설정
 		End.name = JOptionPane.showInputDialog(null, "닉네임 입력","랭킹 ",-1);
 		
-		//취소 안눌렀을 경우
+		//취소 안눌렀을 
 		if( name != null ) {		
 			try {
+				End.name = End.name.replace('@', 'ⓐ');
 				reset();
 			} catch (IOException e1) {
 				e1.printStackTrace();
@@ -115,5 +113,6 @@ public class End extends JFrame {
 	}
 	
 	public static void main(String[] args) throws IOException  {
+		new End();
 	}
 }

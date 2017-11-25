@@ -9,13 +9,12 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent; 
 import java.awt.event.MouseMotionListener;
 import javafx.embed.swing.JFXPanel;
-import javafx.scene.layout.Background;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 
 public class Game extends JFrame {
 	
-	JLabel charter, score_board, life, talk , background;
+	JLabel charter, score_board, life, comment , background;
 	String select_charter;
 	String[] charter_arr = {"image/1@천국1.png","image/1@천국2.png","image/1@천국3.png","image/1@천국4.png","image/1@천국5.png","image/2@지옥1.png","image/2@지옥2.png","image/2@지옥3.png","image/2@지옥4.png","image/2@지옥5.png","image/1@천국6.png","image/1@천국7.png","image/1@천국8.png","image/1@천국9.png","image/1@천국10.png","image/2@지옥6.png","image/2@지옥7.png","image/2@지옥8.png","image/2@지옥9.png","image/2@지옥10.png"};
 	String[] comment_arr = new String[1260];
@@ -42,7 +41,7 @@ public class Game extends JFrame {
         p = new MediaPlayer(m);
         
 		//캐릭터 선택 및 설정
-		select_charter = charter_arr[(int) (Math.random() * 10)];
+		select_charter = charter_arr[(int) (Math.random() * 20)];
 	    ImageIcon cimg  = new ImageIcon(select_charter);
 	    charter  = new JLabel(cimg);
 	    charter.setLocation(700,450);
@@ -62,7 +61,6 @@ public class Game extends JFrame {
 	    
 	    //코멘트 파일 가져오기
 		BufferedReader file = new BufferedReader(new FileReader("text/comment.txt"));
-		String data;
 		int i = 0;
 		
 		while(true) {
@@ -74,15 +72,14 @@ public class Game extends JFrame {
 		file.close();
 		
 		//코멘트 라벨 설정
-		String comment =comment_arr[(int) (Math.random() * 1259)];
-		talk = new JLabel(comment_arr[(int) (Math.random() * 1259)]);
-		talk.setOpaque(true);
-		talk.setForeground(Color.WHITE);
+		comment = new JLabel(comment_arr[(int) (Math.random() * 1259)]);
+		comment.setOpaque(true);
+		comment.setForeground(Color.WHITE);
 		Color color = new Color(0x50000000,true);
-		talk.setBackground(color);
-		talk.setFont(new Font("", Font.PLAIN, 30));
-		talk.setHorizontalAlignment(talk.CENTER);
-		talk.setBounds(0,200,1600,100);
+		comment.setBackground(color);
+		comment.setFont(new Font("", Font.PLAIN, 30));
+		comment.setHorizontalAlignment(comment.CENTER);
+		comment.setBounds(0,200,1600,100);
 	    
 		//타이머 라벨 설정
 		JLabel cnt = new JLabel("60");
@@ -98,9 +95,9 @@ public class Game extends JFrame {
 			public void run() {
 				if(count == 0)
 				{
-					new End();
 					dispose();
 					p.dispose();
+					new End();
 					timer.cancel();
 				}
 				else {
@@ -123,7 +120,7 @@ public class Game extends JFrame {
         add(charter);
         add(life);
         add(score_board);
-        add(talk);
+        add(comment);
         add(cnt);
         add(background);
         
@@ -220,10 +217,10 @@ public class Game extends JFrame {
 			}
 		}
 		
-		select_charter = charter_arr[(int) (Math.random() * 10)];
+		select_charter = charter_arr[(int) (Math.random() * 20)];
 		charter.setIcon(new ImageIcon(select_charter));
 		charter.setLocation(700,450);
-		talk.setText(comment_arr[(int) (Math.random() * 1259)]);
+		comment.setText(comment_arr[(int) (Math.random() * 1259)]);
 	}
 	
 	public static void main(String[] args) {

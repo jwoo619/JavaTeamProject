@@ -29,7 +29,8 @@ public class Ranking extends JFrame {
 		rank.setForeground(Color.WHITE);
 		
 		//back버튼 설정
-		JButton back = new JButton("뒤로가기");
+		ImageIcon bbimg  = new ImageIcon("image/back.png");
+		JButton back = new JButton(bbimg);
 		back.setBounds(480, 850, 250, 80);
 		back.setFont(new Font("맑은 고딕",Font.BOLD,20));
 		back.addActionListener(new ActionListener() {

@@ -1,0 +1,231 @@
+import java.awt.*;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.Timer;
+import java.util.TimerTask;
+import javax.swing.*;
+import java.awt.event.MouseAdapter; 
+import java.awt.event.MouseEvent; 
+import java.awt.event.MouseMotionListener;
+import javafx.embed.swing.JFXPanel;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
+
+public class Game extends JFrame {
+	
+	JLabel charter, score_board, life, talk , background;
+	String select_charter;
+	String[] charter_arr = {"image/1@천국1.png","image/1@천국2.png","image/1@천국3.png","image/1@천국4.png","image/1@천국5.png","image/2@지옥1.png","image/2@지옥2.png","image/2@지옥3.png","image/2@지옥4.png","image/2@지옥5.png","image/1@천국6.png","image/1@천국7.png","image/1@천국8.png","image/1@천국9.png","image/1@천국10.png","image/2@지옥6.png","image/2@지옥7.png","image/2@지옥8.png","image/2@지옥9.png","image/2@지옥10.png"};
+	String[] comment_arr = new String[1260];
+	JFXPanel panel = new JFXPanel();
+	Timer timer;
+	MediaPlayer p;
+	
+	static int score, life_num, count;
+	
+	public Game() throws IOException {
+		
+		//레이아웃 설정
+		Container c = this.getContentPane();
+		c.setLayout(null);
+		
+		//변수 초기화
+		Game.life_num = 3;
+		Game.score = 0;
+		Game.count = 60;
+		
+		//BGM 설정
+	    JFXPanel panel = new JFXPanel();	   
+        Media m = new Media("file:///" + System.getProperty("user.dir").replace('\\', '/') + "/" + "BGM/playing.mp3");
+        p = new MediaPlayer(m);
+        
+		//캐릭터 선택 및 설정
+		select_charter = charter_arr[(int) (Math.random() * 20)];
+	    ImageIcon cimg  = new ImageIcon(select_charter);
+	    charter  = new JLabel(cimg);
+	    charter.setLocation(700,450);
+		charter.setSize(200,400);
+	    
+		//라이프 라벨 설정
+	    life = new JLabel("LIFE : ♥ ♥ ♥ ♥");
+	    life.setForeground(Color.RED);
+	    life.setBounds(1200,0,400,100);
+	    life.setFont(new Font("", Font.PLAIN, 50));
+	    
+	    //점수판 라벨 설정
+	    score_board = new JLabel("score : 0");
+	    score_board.setForeground(Color.WHITE);
+	    score_board.setBounds(700,0,500,100);
+	    score_board.setFont(new Font("", Font.PLAIN, 50));
+	    
+	    //코멘트 파일 가져오기
+		BufferedReader file = new BufferedReader(new FileReader("text/comment.txt"));
+		String data;
+		int i = 0;
+		
+		while(true) {
+	            String line = file.readLine();
+	            if (line==null) break;
+	            comment_arr[i] = line;	            
+	            i++;
+	    }
+		file.close();
+		
+		//코멘트 라벨 설정
+		String comment =comment_arr[(int) (Math.random() * 1259)];
+		talk = new JLabel(comment_arr[(int) (Math.random() * 1259)]);
+		talk.setOpaque(true);
+		talk.setForeground(Color.WHITE);
+		Color color = new Color(0x50000000,true);
+		talk.setBackground(color);
+		talk.setFont(new Font("", Font.PLAIN, 30));
+		talk.setHorizontalAlignment(talk.CENTER);
+		talk.setBounds(0,200,1600,100);
+	    
+		//타이머 라벨 설정
+		JLabel cnt = new JLabel("60");
+		cnt.setForeground(Color.WHITE);
+		cnt.setFont(new Font("", Font.PLAIN, 50));
+		cnt.setBounds(700,60,300,100);
+		
+		//타이머 설정
+		timer = new Timer();
+		TimerTask task = new TimerTask() {
+			
+			@Override
+			public void run() {
+				if(count == 0)
+				{
+					new End();
+					dispose();
+					p.dispose();
+					timer.cancel();
+				}
+				else {
+					count -=1 ;
+					cnt.setText("Time : " + count + "");
+				}
+				
+			}
+		};
+		timer.schedule(task, 0,1000);
+		
+		//배경 설정
+	    ImageIcon bimg  = new ImageIcon("image/background_gameplay.gif");
+	    background  = new JLabel(bimg);
+	    background.setLocation(0, 0);
+	    background.setSize(1600, 1000);
+		
+        //추가 및 재생
+        p.play();
+        add(charter);
+        add(life);
+        add(score_board);
+        add(talk);
+        add(cnt);
+        add(background);
+        
+		this.addMouseListener(new MyMouseListener()); // 마우스리스너 
+		this.addMouseMotionListener(new MyMouseListener()); // 모션리스너 
+		
+        //창 설정
+        Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
+	    setLocation((dim.width/2) - 800, (dim.height/2) - 500);
+		setTitle("신과 함께");
+		setSize(1600,1000);
+		setResizable(false);
+		setVisible(true);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);	
+	}
+	
+	class MyMouseListener extends MouseAdapter implements MouseMotionListener{ 
+		
+		//드래그
+		public void mouseDragged(MouseEvent e){
+			int x = e.getX();
+			int y = e.getY();
+			if((charter.getX() < x && charter.getX()+200 > x) && (charter.getY()+80 < y && charter.getY()+370 > y))
+			charter.setLocation(x-100, y-250);
+			
+			//천국
+			if(charter.getX() < 100 )
+			{	   
+				Media m = new Media("file:///" + System.getProperty("user.dir").replace('\\', '/') + "/" + "BGM/heaven.mp3");
+		        MediaPlayer p = new MediaPlayer(m);
+		        p.play();
+				Check (select_charter.charAt(6) , '1');
+			}
+			
+			//지옥
+			else if(charter.getX() > 1300) 
+			{	   
+		        Media m = new Media("file:///" + System.getProperty("user.dir").replace('\\', '/') + "/" + "BGM/hell.mp3");
+		        MediaPlayer p = new MediaPlayer(m);
+		        p.play();
+				Check (select_charter.charAt(6) , '2');
+			}
+		}
+	}
+	
+	public void Check (char a , char b) {
+		
+		//판별
+		if(a == b) {
+			Game.score += 100;
+			score_board.setText("score : "+Game.score);
+		}
+		
+		else {
+			if(Game.life_num == 0) {
+				p.dispose();
+				timer.cancel();
+				dispose();
+				new End();
+			}
+			else
+			{	
+					Runnable r = new Runnable() {
+				      @Override
+				      public void run() {
+				        for (int i = 0; i < 2; i++) {
+				          try {
+
+								background.setLocation(50, 50);
+								Thread.sleep(35);
+								background.setLocation(0, 0);
+								Thread.sleep(35);
+								background.setLocation(-50, -50);
+								Thread.sleep(35);
+								background.setLocation(0, 0);
+								Thread.sleep(35);
+				          } catch (InterruptedException ex) {
+				            ex.printStackTrace();
+				          }
+				        }
+				      }
+				    };
+				    Thread t = new Thread(r);
+				    t.start();
+
+		        Game.life_num -= 1;
+
+				if(life_num ==2)
+					life.setText("LIFE : ♥ ♥ ♥");
+				else if(life_num == 1)
+					life.setText("LIFE : ♥ ♥");
+				else
+					life.setText("LIFE : ♥");
+			}
+		}
+		
+		select_charter = charter_arr[(int) (Math.random() * 20)];
+		charter.setIcon(new ImageIcon(select_charter));
+		charter.setLocation(700,450);
+		talk.setText(comment_arr[(int) (Math.random() * 1259)]);
+	}
+	
+	public static void main(String[] args) {
+	}
+
+}
