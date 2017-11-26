@@ -44,8 +44,7 @@ public class Game extends JFrame {
 		select_charter = charter_arr[(int) (Math.random() * 20)];
 	    ImageIcon cimg  = new ImageIcon(select_charter);
 	    charter  = new JLabel(cimg);
-	    charter.setLocation(700,450);
-		charter.setSize(200,400);
+	    charter.setBounds(700, 450, 200, 400);
 	    
 		//라이프 라벨 설정
 	    life = new JLabel("LIFE : ♥ ♥ ♥ ♥");
@@ -58,7 +57,7 @@ public class Game extends JFrame {
 	    score_board.setForeground(Color.WHITE);
 	    score_board.setBounds(700,0,500,100);
 	    score_board.setFont(new Font("", Font.PLAIN, 50));
-	    
+	    System.out.println("asdfadf");
 	    //코멘트 파일 가져오기
 		BufferedReader file = new BufferedReader(new FileReader("text/comment.txt"));
 		int i = 0;
@@ -188,7 +187,6 @@ public class Game extends JFrame {
 				      public void run() {
 				        for (int i = 0; i < 2; i++) {
 				          try {
-
 								background.setLocation(50, 50);
 								Thread.sleep(35);
 								background.setLocation(0, 0);

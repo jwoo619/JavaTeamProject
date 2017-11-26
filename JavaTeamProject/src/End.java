@@ -97,7 +97,6 @@ public class End extends JFrame {
 		
 		PrintWriter pw = new PrintWriter(new FileWriter("text/rank.txt"));
 		
-		//10등일 경우
 		if(Game.score != -1 && i != 10) {
 			data[i] = End.name+"@"+Game.score;
 			i++;

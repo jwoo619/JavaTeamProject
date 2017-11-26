@@ -32,6 +32,7 @@ public class Ranking extends JFrame {
 		ImageIcon bbimg  = new ImageIcon("image/back.png");
 		JButton back = new JButton(bbimg);
 		back.setBounds(480, 850, 250, 80);
+		back.setFont(new Font("¸¼Àº °íµñ",Font.BOLD,20));
 		back.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dispose();

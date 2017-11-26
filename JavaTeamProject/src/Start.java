@@ -23,9 +23,7 @@ public class Start extends JFrame {
         //start¹öÆ° ¼³Á¤
         ImageIcon bsimg  = new ImageIcon("image/start.png");
 		JButton start = new JButton(bsimg);
-		start.setForeground(Color.WHITE);
 		start.setBounds(480, 700, 250, 80);
-		start.setFont(new Font("¸¼Àº °íµñ",Font.BOLD,30));
 		start.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				p.dispose();
@@ -43,8 +41,6 @@ public class Start extends JFrame {
 		ImageIcon brimg  = new ImageIcon("image/rank.png");
 		JButton rank = new JButton(brimg);
 		rank.setBounds(480, 800, 250, 80);
-		rank.setFont(new Font("¸¼Àº °íµñ",Font.BOLD,30));
-		rank.setForeground(Color.WHITE);
 		rank.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				p.dispose();
